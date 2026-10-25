@@ -25,7 +25,60 @@
             <label for="password">Password :</label>
             <input type="password" id="password" name="password" placeholder="enter your password" required>
         </p>
+        <p>
+            <label for="dob">Date Of Birth :</label>
+            ,<input type="date" id="dob" name="dob" required>
+        </p>
+        <p>
+            <label for="phone">Phone number :</label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit phone number"required>
 
+        </p>
+
+        Gender : <br>
+        <p>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="male" required> 
+        
+ 
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="female" > 
+        
+        <label for="other">Other</label>
+        <input type="radio" id="other" name="other" > 
+        </p>
+
+        Interests : <br>
+        <p>
+        <label for="Web">Web devlopment</label>
+        <input type="checkbox" id="web " name="web" required> 
+        
+        <label for="ai">AI/ML</label>
+        <input type="checkbox" id="ai" name="ai" > 
+        
+        <label robotics="other">Robotics</label>
+        <input type="checkbox" id="robotics" name="robotics"> 
+        </p>
+
+         <p>
+      <label for="event">Select Event:</label><br>
+      <select id="event" name="event" required>
+        <option value="">-- Choose an event --</option>
+        <option value="hackathon">Hackathon</option>
+        <option value="workshop">Web Workshop</option>
+        <option value="quiz">Tech Quiz</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" cols="40" placeholder="Why do you want to join?"></textarea>
+    </p>
+
+    <p>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </p>
     </form>
 </body>
 </html>
