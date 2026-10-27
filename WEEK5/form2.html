@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form</title>
+	<style>
+		:root {
+			font-family: "Segoe UI", Arial, sans-serif;
+			color: #183a2b;
+			background: #f3f7f4;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 32px 20px;
+			display: grid;
+			place-items: start center;
+			line-height: 1.6;
+		}
+
+		form {
+			width: min(100%, 560px);
+			padding: 28px;
+			border: 1px solid #d5e0d8;
+			border-radius: 14px;
+			background: #fff;
+			box-shadow: 0 12px 32px rgb(24 58 43 / 9%);
+		}
+
+		h1 {
+			margin: 0 0 20px;
+			color: #183a2b;
+			font-size: clamp(1.6rem, 4vw, 2rem);
+		}
+
+		p {
+			margin: 0 0 16px;
+		}
+
+		label {
+			display: inline-block;
+			margin-bottom: 5px;
+			font-weight: 600;
+		}
+
+		input:not([type="radio"]):not([type="checkbox"]),
+		select,
+		textarea {
+			display: block;
+			width: 100%;
+			padding: 11px 12px;
+			border: 1px solid #b8c9bd;
+			border-radius: 7px;
+			background: #fff;
+			color: #183a2b;
+			font: inherit;
+		}
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			accent-color: #287348;
+		}
+
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 3px solid #b8e3c2;
+			border-color: #287348;
+		}
+
+		textarea {
+			min-height: 120px;
+			resize: vertical;
+		}
+
+		button {
+			margin: 4px 8px 4px 0;
+			padding: 10px 18px;
+			border: 0;
+			border-radius: 7px;
+			background: #287348;
+			color: #fff;
+			font: inherit;
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		button[type="reset"] {
+			background: #e2ebe5;
+			color: #183a2b;
+		}
+
+		button:hover {
+			filter: brightness(0.92);
+		}
+
+		@media (max-width: 480px) {
+			body {
+				padding: 16px 12px;
+			}
+
+			form {
+				padding: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+</body>
+</html>
