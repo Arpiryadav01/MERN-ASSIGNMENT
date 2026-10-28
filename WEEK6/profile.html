@@ -94,6 +94,10 @@
 		.dot-green { background: #28c840; }
 
 		.page-title {
+			position: sticky;
+			top: 0;
+			z-index: 10;
+			align-self: start;
 			margin: 9px 0 0;
 			padding: 12px;
 			background: var(--color-titlebar);
@@ -153,9 +157,10 @@
 		}
 
 		.add-button {
-			position: absolute;
+			position: fixed;
 			right: 16px;
 			bottom: 16px;
+			z-index: 20;
 			width: 56px;
 			height: 56px;
 			border: 0;
