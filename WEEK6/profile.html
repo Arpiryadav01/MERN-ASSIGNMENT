@@ -11,7 +11,6 @@
 			--color-chrome: #e7ecf4;
 			--color-surface: #ffffff;
 			--color-ink: #101010;
-			--color-muted: #63718a;
 			--color-accent: #315cf0;
 			--color-titlebar: #12213d;
 			--color-label: #0876ff;
@@ -22,7 +21,6 @@
 			--space-stage: 8px;
 			--space-card: 20px;
 			--space-section: 16px;
-			--space-small: 8px;
 		}
 
 		* {
@@ -48,7 +46,7 @@
 			margin: 0 0 4px;
 		}
 
-		.eyebrow {
+		.page-label {
 			margin: 0;
 			padding: 7px 10px;
 			border-left: 5px solid var(--color-orange);
@@ -57,7 +55,7 @@
 			font-weight: 700;
 		}
 
-		.layout {
+		.preview-stage {
 			display: grid;
 			grid-template-columns: repeat(2, minmax(0, 292px));
 			justify-content: center;
@@ -69,12 +67,12 @@
 			background: var(--color-stage);
 		}
 
-		.browser-chrome,
-		.page-title {
+		.browser-bar,
+		.preview-title {
 			grid-column: 1 / -1;
 		}
 
-		.browser-chrome {
+		.browser-bar {
 			display: flex;
 			height: 39px;
 			align-items: center;
@@ -83,17 +81,17 @@
 			background: var(--color-chrome);
 		}
 
-		.dot {
+		.browser-dot {
 			width: 12px;
 			height: 12px;
 			border-radius: 50%;
 		}
 
-		.dot-red { background: #ff5f57; }
-		.dot-yellow { background: #febc2e; }
-		.dot-green { background: #28c840; }
+		.browser-dot--red { background: #ff5f57; }
+		.browser-dot--yellow { background: #febc2e; }
+		.browser-dot--green { background: #28c840; }
 
-		.page-title {
+		.preview-title {
 			position: sticky;
 			top: 0;
 			z-index: 10;
@@ -121,11 +119,7 @@
 			--card-accent: #315cf0;
 		}
 
-		.profile-card--green {
-			--card-accent: #16835d;
-		}
-
-		.avatar {
+		.profile-card__avatar {
 			display: grid;
 			width: 94px;
 			aspect-ratio: 1;
@@ -142,12 +136,12 @@
 			font-size: 1.5rem;
 		}
 
-		.role {
+		.profile-card__role {
 			margin: 0 0 16px;
 			color: var(--card-accent);
 		}
 
-		.bio {
+		.profile-card__bio {
 			height: 82px;
 			margin: 0;
 			padding: 8px;
@@ -156,7 +150,7 @@
 			overflow: auto;
 		}
 
-		.add-button {
+		.floating-add-button {
 			position: fixed;
 			right: 16px;
 			bottom: 16px;
@@ -176,7 +170,7 @@
 				padding: 10px;
 			}
 
-			.layout {
+			.preview-stage {
 				grid-template-columns: minmax(0, 320px);
 			}
 		}
@@ -185,24 +179,24 @@
 <body>
 	<main>
 		<header>
-			<p class="eyebrow">EXPECTED OUTPUT (BROWSER)</p>
+			<p class="page-label">EXPECTED OUTPUT (BROWSER)</p>
 		</header>
 
-		<div class="layout">
-			<div class="browser-chrome" aria-hidden="true">
-				<span class="dot dot-red"></span>
-				<span class="dot dot-yellow"></span>
-				<span class="dot dot-green"></span>
+		<div class="preview-stage">
+			<div class="browser-bar" aria-hidden="true">
+				<span class="browser-dot browser-dot--red"></span>
+				<span class="browser-dot browser-dot--yellow"></span>
+				<span class="browser-dot browser-dot--green"></span>
 			</div>
-			<h1 class="page-title">My Profile Page</h1>
+			<h1 class="preview-title">My Profile Page</h1>
 			<article class="profile-card profile-card--blue">
-				<div class="avatar" aria-hidden="true">A</div>
+				<div class="profile-card__avatar" aria-hidden="true">A</div>
 				<h2>Arpit Yadav</h2>
-				<p class="role">Web Developer in Making</p>
-				<p class="bio">Hi! I am Arpit. I am from Lakhimpur Kheri and currently pursuing B.Tech in Computer Science, Section E. I enjoy learning web development and building small websites.</p>
+				<p class="profile-card__role">Web Developer in Making</p>
+				<p class="profile-card__bio">Hi! I am Arpit. I am from Lakhimpur Kheri and currently pursuing B.Tech in Computer Science, Section E. I enjoy learning web development and building small websites.</p>
 			</article>
 			
-			<button class="add-button" type="button" aria-label="Add profile detail">+</button>
+			<button class="floating-add-button" type="button" aria-label="Add profile detail">+</button>
 		</div>
 	</main>
 </body>
