@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Profile | The CSS Box Model</title>
+	<style>
+		:root {
+			--color-page: #ffffff;
+			--color-stage: #edf2fa;
+			--color-chrome: #e7ecf4;
+			--color-surface: #ffffff;
+			--color-ink: #101010;
+			--color-muted: #63718a;
+			--color-accent: #315cf0;
+			--color-titlebar: #12213d;
+			--color-label: #0876ff;
+			--color-orange: #ff633b;
+			--color-yellow: #ffb600;
+			--color-border: #c9d2e2;
+			--space-page: 16px;
+			--space-stage: 8px;
+			--space-card: 20px;
+			--space-section: 16px;
+			--space-small: 8px;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: var(--space-page);
+			background: var(--color-page);
+			color: var(--color-ink);
+			font-family: "Segoe UI", Arial, sans-serif;
+			line-height: 1.35;
+		}
+
+		main {
+			width: 100%;
+		}
+
+		header {
+			margin: 0 0 4px;
+		}
+
+		.eyebrow {
+			margin: 0;
+			padding: 7px 10px;
+			border-left: 5px solid var(--color-orange);
+			color: var(--color-label);
+			font-size: 1rem;
+			font-weight: 700;
+		}
+
+		.layout {
+			position: relative;
+			min-height: min(600px, calc(100vh - 70px));
+			padding: var(--space-stage);
+			border: 1px solid #dce3ee;
+			background: var(--color-stage);
+		}
+
+		.browser-chrome {
+			display: flex;
+			height: 39px;
+			align-items: center;
+			gap: 7px;
+			padding: 0 16px;
+			background: var(--color-chrome);
+		}
+
+		.dot {
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+		}
+
+		.dot-red { background: #ff5f57; }
+		.dot-yellow { background: #febc2e; }
+		.dot-green { background: #28c840; }
+
+		.page-title {
+			margin: 9px 0 0;
+			padding: 12px;
+			background: var(--color-titlebar);
+			color: var(--color-surface);
+			text-align: center;
+			font-size: 1rem;
+		}
+
+		.profile-card {
+			width: min(292px, calc(100% - 28px));
+			margin: 24px auto 0;
+			padding: var(--space-card);
+			border: 2px solid var(--color-accent);
+			border-radius: 17px;
+			background: var(--color-surface);
+			text-align: center;
+		}
+
+		.avatar {
+			display: grid;
+			width: 94px;
+			aspect-ratio: 1;
+			margin: 0 auto var(--space-section);
+			place-items: center;
+			border-radius: 50%;
+			background: var(--color-accent);
+			color: var(--color-surface);
+			font-size: 2.4rem;
+		}
+
+		.profile-card h2 {
+			margin: 0 0 16px;
+			font-size: 1.5rem;
+		}
+
+		.role {
+			margin: 0 0 16px;
+		}
+
+		.bio {
+			height: 82px;
+			margin: 0;
+			padding: 8px;
+			border: 1px solid var(--color-border);
+			text-align: left;
+			overflow: hidden;
+		}
+
+		.add-button {
+			position: absolute;
+			right: 16px;
+			bottom: 16px;
+			width: 56px;
+			height: 56px;
+			border: 0;
+			border-radius: 50%;
+			background: var(--color-yellow);
+			color: var(--color-ink);
+			font-size: 1.7rem;
+			cursor: pointer;
+		}
+
+		@media (max-width: 720px) {
+			body {
+				padding: 10px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<header>
+			<p class="eyebrow">EXPECTED OUTPUT (BROWSER)</p>
+		</header>
+
+		<div class="layout">
+			<div class="browser-chrome" aria-hidden="true">
+				<span class="dot dot-red"></span>
+				<span class="dot dot-yellow"></span>
+				<span class="dot dot-green"></span>
+			</div>
+			<h1 class="page-title">My Profile Page</h1>
+			<article class="profile-card">
+				<div class="avatar" aria-hidden="true">A</div>
+				<h2>Arpit Yadav</h2>
+				<p class="role">Web Developer in Making</p>
+				<p class="bio">Hi! I am Arpit. I am from Lakhimpur Kheri and currently pursuing B.Tech in Computer Science, Section E. I enjoy learning web development and building small websites.</p>
+			</article>
+			<button class="add-button" type="button" aria-label="Add profile detail">+</button>
+		</div>
+	</main>
+</body>
+</html>
+
