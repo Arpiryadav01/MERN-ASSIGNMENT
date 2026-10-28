@@ -28,6 +28,7 @@
 		* {
 			box-sizing: border-box;
 		}
+        
 
 		body {
 			min-height: 100vh;
@@ -57,11 +58,20 @@
 		}
 
 		.layout {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 292px));
+			justify-content: center;
+			gap: 24px;
 			position: relative;
 			min-height: min(600px, calc(100vh - 70px));
 			padding: var(--space-stage);
 			border: 1px solid #dce3ee;
 			background: var(--color-stage);
+		}
+
+		.browser-chrome,
+		.page-title {
+			grid-column: 1 / -1;
 		}
 
 		.browser-chrome {
@@ -93,13 +103,22 @@
 		}
 
 		.profile-card {
-			width: min(292px, calc(100% - 28px));
-			margin: 24px auto 0;
+			grid-column: 1 / -1;
+			justify-self: center;
+			width: min(292px, 100%);
 			padding: var(--space-card);
-			border: 2px solid var(--color-accent);
+			border: 2px solid var(--card-accent);
 			border-radius: 17px;
 			background: var(--color-surface);
 			text-align: center;
+		}
+
+		.profile-card--blue {
+			--card-accent: #315cf0;
+		}
+
+		.profile-card--green {
+			--card-accent: #16835d;
 		}
 
 		.avatar {
@@ -109,7 +128,7 @@
 			margin: 0 auto var(--space-section);
 			place-items: center;
 			border-radius: 50%;
-			background: var(--color-accent);
+			background: var(--card-accent);
 			color: var(--color-surface);
 			font-size: 2.4rem;
 		}
@@ -121,6 +140,7 @@
 
 		.role {
 			margin: 0 0 16px;
+			color: var(--card-accent);
 		}
 
 		.bio {
@@ -129,7 +149,7 @@
 			padding: 8px;
 			border: 1px solid var(--color-border);
 			text-align: left;
-			overflow: hidden;
+			overflow-y: auto;
 		}
 
 		.add-button {
@@ -150,6 +170,10 @@
 			body {
 				padding: 10px;
 			}
+
+			.layout {
+				grid-template-columns: minmax(0, 320px);
+			}
 		}
 	</style>
 </head>
@@ -166,12 +190,13 @@
 				<span class="dot dot-green"></span>
 			</div>
 			<h1 class="page-title">My Profile Page</h1>
-			<article class="profile-card">
+			<article class="profile-card profile-card--blue">
 				<div class="avatar" aria-hidden="true">A</div>
 				<h2>Arpit Yadav</h2>
 				<p class="role">Web Developer in Making</p>
 				<p class="bio">Hi! I am Arpit. I am from Lakhimpur Kheri and currently pursuing B.Tech in Computer Science, Section E. I enjoy learning web development and building small websites.</p>
 			</article>
+			
 			<button class="add-button" type="button" aria-label="Add profile detail">+</button>
 		</div>
 	</main>
