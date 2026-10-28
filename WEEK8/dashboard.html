@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard Grid</title>
+	<style>
+		:root {
+			--color-page: #f3f6fb;
+			--color-surface: #ffffff;
+			--color-text: #1b2942;
+			--color-muted: #63718a;
+			--color-accent: #3859d7;
+			--space-page: 32px;
+			--space-grid: 20px;
+			--space-card: 24px;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: var(--space-page);
+			background: var(--color-page);
+			color: var(--color-text);
+			font-family: "Segoe UI", Arial, sans-serif;
+		}
+
+		main {
+			width: min(100%, 1100px);
+			margin: 0 auto;
+		}
+
+		header {
+			margin-bottom: 28px;
+		}
+
+		header p {
+			margin: 8px 0 0;
+			color: var(--color-muted);
+		}
+
+		.dashboard-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: var(--space-grid);
+		}
+
+		.dashboard-card {
+			min-height: 170px;
+			padding: var(--space-card);
+			border: 1px solid #e0e6f0;
+			border-radius: 14px;
+			background: var(--color-surface);
+			box-shadow: 0 8px 24px rgb(27 41 66 / 6%);
+		}
+
+		.dashboard-card h2 {
+			margin: 0 0 12px;
+			color: var(--color-accent);
+			font-size: 1.1rem;
+		}
+
+		.metric {
+			margin: 0;
+			font-size: 2rem;
+			font-weight: 700;
+		}
+
+		.card-note {
+			margin: 8px 0 0;
+			color: var(--color-muted);
+		}
+
+		@media (max-width: 760px) {
+			:root {
+				--space-page: 20px;
+			}
+
+			.dashboard-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 520px) {
+			.dashboard-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<header>
+			<h1> MyDashboard</h1>
+	
+		</header>
+		<section class="dashboard-grid" aria-label="Dashboard overview">
+			<article class="dashboard-card">
+				
+				<p class="metric">120</p>
+				<p class="card-note">Users</p>
+			</article>
+			<article class="dashboard-card">
+		
+				<p class="metric"> Rs 15 k</p>
+				<p class="card-note">Sales</p>
+			</article>
+			<article class="dashboard-card">
+				
+				<p class="metric">36</p>
+				<p class="card-note">Orders</p>
+			</article>
+			<article class="dashboard-card">
+			
+				<p class="metric">4.8</p>
+				<p class="card-note">Rating</p>
+			</article>
+			<article class="dashboard-card">
+
+				<p class="metric">18</p>
+				<p class="card-note">Messages</p>
+			</article>
+			<article class="dashboard-card">
+				
+				<p class="metric">92%</p>
+				<p class="card-note">Done</p>
+			</article>
+		</section>
+	</main>
+</body>
+</html>
