@@ -45,7 +45,7 @@
 
 		.dashboard-grid {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 			gap: var(--space-grid);
 		}
 
@@ -78,16 +78,6 @@
 		@media (max-width: 760px) {
 			:root {
 				--space-page: 20px;
-			}
-
-			.dashboard-grid {
-				grid-template-columns: repeat(2, 1fr);
-			}
-		}
-
-		@media (max-width: 520px) {
-			.dashboard-grid {
-				grid-template-columns: 1fr;
 			}
 		}
 	</style>
