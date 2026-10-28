@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project Showcase</title>
+	<style>
+		:root {
+			--color-page: #f5f7fb;
+			--color-surface: #ffffff;
+			--color-text: #1b2942;
+			--color-muted: #63718a;
+			--color-accent: #3859d7;
+			--color-accent-soft: #e8edff;
+			--color-border: #e1e7f0;
+			--space-page: 16px;
+			--space-section: 48px;
+			--space-card: 22px;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			min-width: 320px;
+			margin: 0;
+			background: var(--color-page);
+			color: var(--color-text);
+			font-family: "Segoe UI", Arial, sans-serif;
+			line-height: 1.6;
+		}
+
+		a {
+			color: inherit;
+		}
+
+		.site-header {
+			padding: 14px var(--space-page);
+			background: var(--color-surface);
+			border-bottom: 1px solid var(--color-border);
+		}
+
+		.navbar {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+			max-width: 1120px;
+			margin: 0 auto;
+		}
+
+		.brand {
+			color: var(--color-accent);
+			font-size: 1.25rem;
+			font-weight: 800;
+			text-decoration: none;
+		}
+
+		.nav-links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px 18px;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.nav-links a {
+			color: var(--color-muted);
+			font-size: 0.95rem;
+			font-weight: 600;
+			text-decoration: none;
+		}
+
+		.nav-links a:hover,
+		.nav-links a:focus-visible {
+			color: var(--color-accent);
+		}
+
+		main {
+			width: min(100% - 2 * var(--space-page), 1120px);
+			margin: 0 auto;
+		}
+
+		.hero {
+			padding: var(--space-section) 0;
+		}
+
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--color-accent);
+			font-size: 0.8rem;
+			font-weight: 800;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+		}
+
+		.hero h1 {
+			max-width: 720px;
+			margin: 0;
+			font-size: clamp(2.1rem, 8vw, 3.5rem);
+			line-height: 1.1;
+		}
+
+		.hero-copy {
+			max-width: 650px;
+			margin: 16px 0 0;
+			color: var(--color-muted);
+			font-size: 1.05rem;
+		}
+
+		.project-section {
+			padding-bottom: var(--space-section);
+		}
+
+		.section-heading {
+			margin: 0 0 20px;
+			font-size: 1.5rem;
+		}
+
+		.project-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+
+		.project-card {
+			overflow: hidden;
+			border: 1px solid var(--color-border);
+			border-radius: 14px;
+			background: var(--color-surface);
+			box-shadow: 0 8px 24px rgb(27 41 66 / 5%);
+		}
+
+		.project-art {
+			display: grid;
+			min-height: 150px;
+			place-items: center;
+			background: var(--color-accent-soft);
+			color: var(--color-accent);
+			font-size: 2rem;
+			font-weight: 800;
+		}
+
+		.project-card:nth-child(2) .project-art {
+			background: #e5f5ee;
+			color: #16835d;
+		}
+
+		.project-card:nth-child(3) .project-art {
+			background: #fff1dc;
+			color: #a66008;
+		}
+
+		.project-info {
+			padding: var(--space-card);
+		}
+
+		.project-info h3 {
+			margin: 0 0 8px;
+			font-size: 1.15rem;
+		}
+
+		.project-info p {
+			margin: 0;
+			color: var(--color-muted);
+		}
+
+		.site-footer {
+			padding: 20px var(--space-page);
+			border-top: 1px solid var(--color-border);
+			color: var(--color-muted);
+			text-align: center;
+		}
+
+		/* Tablet layout */
+		@media (min-width: 768px) {
+			:root {
+				--space-page: 28px;
+				--space-section: 64px;
+				--space-card: 24px;
+			}
+
+			.navbar {
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.project-grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 20px;
+			}
+
+			.project-card:last-child {
+				grid-column: 1 / -1;
+			}
+		}
+
+		/* Desktop layout */
+		@media (min-width: 1024px) {
+			:root {
+				--space-page: 32px;
+				--space-section: 80px;
+			}
+
+			.project-grid {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 24px;
+			}
+
+			.project-card:last-child {
+				grid-column: auto;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<nav class="navbar" aria-label="Main navigation">
+			<a class="brand" href="#home">WanderGo</a>
+			<ul class="nav-links">
+				<li><a href="#home">Home</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#about">About</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main id="home">
+		<section class="hero" aria-labelledby="page-title">
+		
+			<h1 id="page-title">Plane your next trip in minutes.</h1>
+			<p class="hero-copy">Simple, cheap and fun travel planning.</p>
+		</section>
+
+		<section class="project-section" id="projects" aria-labelledby="projects-title">
+			<h2 class="section-heading" id="projects-title">Featured projects</h2>
+			<div class="project-grid">
+				<article class="project-card">
+					<div class="project-art" aria-hidden="true">01</div>
+					<div class="project-info">
+						<h3>Easing booking</h3>
+						<p>book in 3 clicks</p>
+					</div>
+				</article>
+				<article class="project-card">
+					<div class="project-art" aria-hidden="true">02</div>
+					<div class="project-info">
+						<h3>Best prices</h3>
+						<p>We compare for you.</p>
+					</div>
+				</article>
+				<article class="project-card">
+					<div class="project-art" aria-hidden="true">03</div>
+					<div class="project-info">
+						<h3>24*7 Help</h3>
+						<p>Always here to assist you.</p>
+					</div>
+				</article>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer" id="about">Made with care by Studio</footer>
+</body>
+</html>
