@@ -6,20 +6,20 @@
 	<title>Dashboard Grid</title>
 	<style>
 		:root {
-			--color-page: #f3f6fb;
+			--color-page: #ffffff;
+			--color-stage: #edf2f8;
+			--color-chrome: #e7ecf4;
 			--color-surface: #ffffff;
 			--color-text: #1b2942;
 			--color-muted: #63718a;
 			--color-accent: #3859d7;
-			--color-icon-users: #e8edff;
-			--color-icon-sales: #e5f6ed;
-			--color-icon-orders: #fff1d8;
-			--color-icon-rating: #fce8ef;
-			--color-icon-messages: #e5f3f7;
-			--color-icon-done: #eee9ff;
-			--space-page: 32px;
-			--space-grid: 20px;
-			--space-card: 24px;
+			--color-dark: #12213d;
+			--color-sidebar: #dce6fa;
+			--color-frame-border: #dce3ee;
+			--space-page: 18px;
+			--space-stage: 10px;
+			--space-grid: 12px;
+			--space-card: 14px;
 		}
 
 		* {
@@ -35,24 +35,59 @@
 			font-family: "Segoe UI", Arial, sans-serif;
 		}
 
+		.output-label {
+			margin: 0 0 4px;
+			padding-left: 12px;
+			border-left: 5px solid #ff633b;
+			color: #0876ff;
+			font-weight: 700;
+		}
+
+		.browser-frame {
+			padding: var(--space-stage);
+			border: 1px solid var(--color-frame-border);
+			background: var(--color-stage);
+		}
+
+		.browser-chrome {
+			display: flex;
+			height: 40px;
+			align-items: center;
+			gap: 7px;
+			padding: 0 16px;
+			background: var(--color-chrome);
+		}
+
+		.browser-dot {
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+		}
+
+		.browser-dot--red { background: #ff5f57; }
+		.browser-dot--yellow { background: #febc2e; }
+		.browser-dot--green { background: #28c840; }
+
 		main {
 			display: grid;
-			grid-template-columns: 220px minmax(0, 1fr);
+			grid-template-columns: 177px minmax(0, 1fr);
 			grid-template-areas:
 				"head head"
 				"side main"
 				"foot foot";
-			gap: var(--space-grid);
+			gap: 10px;
 			width: min(100%, 1100px);
 			margin: 0 auto;
+			padding-top: 10px;
 		}
 
 		header {
 			grid-area: head;
-			padding: 20px 24px;
-			border-radius: 14px;
-			background: var(--color-surface);
-			box-shadow: 0 8px 24px rgb(27 41 66 / 6%);
+			min-height: 140px;
+			padding: 14px;
+			border-radius: 9px;
+			background: var(--color-dark);
+			color: var(--color-surface);
 		}
 
 		header h1 {
@@ -67,16 +102,17 @@
 		.dashboard-grid {
 			grid-area: main;
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
 			gap: var(--space-grid);
+			align-content: start;
 		}
 
 		.sidebar {
 			grid-area: side;
-			padding: 24px 18px;
-			border-radius: 14px;
-			background: var(--color-surface);
-			box-shadow: 0 8px 24px rgb(27 41 66 / 6%);
+			min-height: 235px;
+			padding: 14px;
+			border-radius: 9px;
+			background: var(--color-sidebar);
 		}
 
 		.sidebar h2 {
@@ -106,61 +142,48 @@
 
 		footer {
 			grid-area: foot;
-			padding: 16px;
-			color: var(--color-muted);
+			min-height: 125px;
+			padding: 14px;
+			border-radius: 9px;
+			background: var(--color-dark);
+			color: var(--color-surface);
 			text-align: center;
 		}
 
 		.dashboard-card {
 			display: flex;
 			align-items: center;
-			gap: 16px;
-			min-height: 170px;
+			gap: 12px;
+			min-height: 72px;
 			padding: var(--space-card);
-			border: 1px solid #e0e6f0;
-			border-radius: 14px;
+			border: 0;
+			border-radius: 12px;
 			background: var(--color-surface);
-			box-shadow: 0 8px 24px rgb(27 41 66 / 6%);
 		}
 
 		.card-icon {
-			display: grid;
-			width: 52px;
-			min-width: 52px;
-			aspect-ratio: 1;
-			place-items: center;
-			border-radius: 14px;
-			color: var(--color-accent);
-			font-size: 1.4rem;
-			font-weight: 700;
+			flex: 0 0 36px;
+			font-size: 1.8rem;
+			line-height: 1;
 		}
-
-		.card-icon--users { background: var(--color-icon-users); }
-		.card-icon--sales { background: var(--color-icon-sales); }
-		.card-icon--orders { background: var(--color-icon-orders); }
-		.card-icon--rating { background: var(--color-icon-rating); }
-		.card-icon--messages { background: var(--color-icon-messages); }
-		.card-icon--done { background: var(--color-icon-done); }
 
 		.card-content {
 			min-width: 0;
 		}
 
 		.dashboard-card h2 {
-			margin: 0 0 8px;
-			color: var(--color-accent);
-			font-size: 1.1rem;
+			margin: 0;
+			color: var(--color-text);
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.15;
 		}
 
 		.metric {
 			margin: 0;
-			font-size: 2rem;
+			font-size: 1rem;
 			font-weight: 700;
-		}
-
-		.card-note {
-			margin: 8px 0 0;
-			color: var(--color-muted);
+			line-height: 1.15;
 		}
 
 		@media (max-width: 760px) {
@@ -177,6 +200,18 @@
 					"foot";
 			}
 
+			header {
+				min-height: 120px;
+			}
+
+			.sidebar {
+				min-height: auto;
+			}
+
+			footer {
+				min-height: 90px;
+			}
+
 			.sidebar ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -190,64 +225,71 @@
 	</style>
 </head>
 <body>
-	<main>
-		<header>
+	<p class="output-label">EXPECTED OUTPUT (BROWSER)</p>
+	<div class="browser-frame">
+		<div class="browser-chrome" aria-hidden="true">
+			<span class="browser-dot browser-dot--red"></span>
+			<span class="browser-dot browser-dot--yellow"></span>
+			<span class="browser-dot browser-dot--green"></span>
+		</div>
+		<main>
+			<header>
 			<h1>My Dashboard</h1>
-			<p>Overview of your activity and performance.</p>
-		</header>
-		<aside class="sidebar" aria-label="Dashboard navigation">
+			</header>
+			<aside class="sidebar" aria-label="Dashboard navigation">
 			<h2>Menu</h2>
 			<ul>
 				<li><a href="#overview">Overview</a></li>
 				<li><a href="#reports">Reports</a></li>
 				<li><a href="#settings">Settings</a></li>
 			</ul>
-		</aside>
-		<section class="dashboard-grid" aria-label="Dashboard overview">
+			</aside>
+			<section class="dashboard-grid" aria-label="Dashboard overview">
 			<article class="dashboard-card">
-				<span class="card-icon card-icon--users" aria-hidden="true">U</span>
+				<span class="card-icon" aria-hidden="true">👤</span>
 				<div class="card-content">
-					<h2>Users</h2>
 					<p class="metric">120</p>
+					<h2>Users</h2>
 				</div>
 			</article>
 			<article class="dashboard-card">
-				<span class="card-icon card-icon--sales" aria-hidden="true">$</span>
+				<span class="card-icon" aria-hidden="true">💰</span>
 				<div class="card-content">
-					<h2>Sales</h2>
 					<p class="metric">Rs 15k</p>
+					<h2>Sales</h2>
 				</div>
 			</article>
 			<article class="dashboard-card">
-				<span class="card-icon card-icon--orders" aria-hidden="true">O</span>
+				<span class="card-icon" aria-hidden="true">📦</span>
 				<div class="card-content">
-					<h2>Orders</h2>
 					<p class="metric">36</p>
+					<h2>Orders</h2>
 				</div>
 			</article>
 			<article class="dashboard-card">
-				<span class="card-icon card-icon--rating" aria-hidden="true">★</span>
+				<span class="card-icon" aria-hidden="true">⭐</span>
 				<div class="card-content">
-					<h2>Rating</h2>
 					<p class="metric">4.8</p>
+					<h2>Rating</h2>
 				</div>
 			</article>
 			<article class="dashboard-card">
-				<span class="card-icon card-icon--messages" aria-hidden="true">M</span>
+				<span class="card-icon" aria-hidden="true">💬</span>
 				<div class="card-content">
-					<h2>Messages</h2>
 					<p class="metric">18</p>
+					<h2>Messages</h2>
 				</div>
 			</article>
 			<article class="dashboard-card">
-				<span class="card-icon card-icon--done" aria-hidden="true">✓</span>
+				<span class="card-icon" aria-hidden="true">✅</span>
 				<div class="card-content">
-					<h2>Done</h2>
 					<p class="metric">92%</p>
+					<h2>Done</h2>
 				</div>
 			</article>
-		</section>
-		<footer>Dashboard summary</footer>
-	</main>
+			</section>
+			<footer>Made with CSS Grid</footer>
+		</main>
+	</div>
 </body>
 </html>
