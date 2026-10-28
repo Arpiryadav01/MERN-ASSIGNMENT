@@ -23,6 +23,12 @@
 		}
 
 		body {
+			display: grid;
+			grid-template-rows: auto 1fr auto;
+			grid-template-areas:
+				"header"
+				"content"
+				"footer";
 			min-width: 320px;
 			margin: 0;
 			background: var(--color-page);
@@ -42,6 +48,7 @@
 		}
 
 		.site-header {
+			grid-area: header;
 			padding: 14px var(--space-page);
 			background: var(--color-surface);
 			border-bottom: 1px solid var(--color-border);
@@ -85,11 +92,18 @@
 		}
 
 		main {
+			grid-area: content;
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-areas:
+				"hero"
+				"projects";
 			width: min(100% - 2 * var(--space-page), 1120px);
 			margin: 0 auto;
 		}
 
 		.hero {
+			grid-area: hero;
 			padding: var(--space-section) 0;
 		}
 
@@ -117,6 +131,7 @@
 		}
 
 		.project-section {
+			grid-area: projects;
 			padding-bottom: var(--space-section);
 		}
 
@@ -174,6 +189,7 @@
 		}
 
 		.site-footer {
+			grid-area: footer;
 			padding: 20px var(--space-page);
 			border-top: 1px solid var(--color-border);
 			color: var(--color-muted);
