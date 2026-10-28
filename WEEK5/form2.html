@@ -4,9 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Form</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<style>
 		:root {
-			font-family: "Segoe UI", Arial, sans-serif;
+			font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.6;
 			color: #183a2b;
 			background: #f3f7f4;
 		}
@@ -33,10 +38,18 @@
 			box-shadow: 0 12px 32px rgb(24 58 43 / 9%);
 		}
 
+		.card {
+			border-top: 5px solid #287348;
+		}
+
 		h1 {
 			margin: 0 0 20px;
 			color: #183a2b;
 			font-size: clamp(1.6rem, 4vw, 2rem);
+		}
+
+		#hero {
+			letter-spacing: 0.02em;
 		}
 
 		p {
@@ -112,5 +125,25 @@
 	</style>
 </head>
 <body>
+	<form class="card">
+		<h1 id="hero">Get in touch</h1>
+		<p>Fill out the form and we’ll get back to you.</p>
+
+		<p>
+			<label for="name">Name</label>
+			<input id="name" name="name" type="text" autocomplete="name" required>
+		</p>
+		<p>
+			<label for="email">Email</label>
+			<input id="email" name="email" type="email" autocomplete="email" required>
+		</p>
+		<p>
+			<label for="message">Message</label>
+			<textarea id="message" name="message" required></textarea>
+		</p>
+
+		<button type="submit">Send message</button>
+		<button type="reset">Clear</button>
+	</form>
 </body>
 </html>
