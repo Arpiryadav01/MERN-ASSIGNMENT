@@ -11,6 +11,12 @@
 			--color-text: #1b2942;
 			--color-muted: #63718a;
 			--color-accent: #3859d7;
+			--color-icon-users: #e8edff;
+			--color-icon-sales: #e5f6ed;
+			--color-icon-orders: #fff1d8;
+			--color-icon-rating: #fce8ef;
+			--color-icon-messages: #e5f3f7;
+			--color-icon-done: #eee9ff;
 			--space-page: 32px;
 			--space-grid: 20px;
 			--space-card: 24px;
@@ -106,6 +112,9 @@
 		}
 
 		.dashboard-card {
+			display: flex;
+			align-items: center;
+			gap: 16px;
 			min-height: 170px;
 			padding: var(--space-card);
 			border: 1px solid #e0e6f0;
@@ -114,8 +123,31 @@
 			box-shadow: 0 8px 24px rgb(27 41 66 / 6%);
 		}
 
+		.card-icon {
+			display: grid;
+			width: 52px;
+			min-width: 52px;
+			aspect-ratio: 1;
+			place-items: center;
+			border-radius: 14px;
+			color: var(--color-accent);
+			font-size: 1.4rem;
+			font-weight: 700;
+		}
+
+		.card-icon--users { background: var(--color-icon-users); }
+		.card-icon--sales { background: var(--color-icon-sales); }
+		.card-icon--orders { background: var(--color-icon-orders); }
+		.card-icon--rating { background: var(--color-icon-rating); }
+		.card-icon--messages { background: var(--color-icon-messages); }
+		.card-icon--done { background: var(--color-icon-done); }
+
+		.card-content {
+			min-width: 0;
+		}
+
 		.dashboard-card h2 {
-			margin: 0 0 12px;
+			margin: 0 0 8px;
 			color: var(--color-accent);
 			font-size: 1.1rem;
 		}
@@ -173,34 +205,46 @@
 		</aside>
 		<section class="dashboard-grid" aria-label="Dashboard overview">
 			<article class="dashboard-card">
-				
-				<p class="metric">120</p>
-				<p class="card-note">Users</p>
+				<span class="card-icon card-icon--users" aria-hidden="true">U</span>
+				<div class="card-content">
+					<h2>Users</h2>
+					<p class="metric">120</p>
+				</div>
 			</article>
 			<article class="dashboard-card">
-		
-				<p class="metric"> Rs 15 k</p>
-				<p class="card-note">Sales</p>
+				<span class="card-icon card-icon--sales" aria-hidden="true">$</span>
+				<div class="card-content">
+					<h2>Sales</h2>
+					<p class="metric">Rs 15k</p>
+				</div>
 			</article>
 			<article class="dashboard-card">
-				
-				<p class="metric">36</p>
-				<p class="card-note">Orders</p>
+				<span class="card-icon card-icon--orders" aria-hidden="true">O</span>
+				<div class="card-content">
+					<h2>Orders</h2>
+					<p class="metric">36</p>
+				</div>
 			</article>
 			<article class="dashboard-card">
-			
-				<p class="metric">4.8</p>
-				<p class="card-note">Rating</p>
+				<span class="card-icon card-icon--rating" aria-hidden="true">★</span>
+				<div class="card-content">
+					<h2>Rating</h2>
+					<p class="metric">4.8</p>
+				</div>
 			</article>
 			<article class="dashboard-card">
-
-				<p class="metric">18</p>
-				<p class="card-note">Messages</p>
+				<span class="card-icon card-icon--messages" aria-hidden="true">M</span>
+				<div class="card-content">
+					<h2>Messages</h2>
+					<p class="metric">18</p>
+				</div>
 			</article>
 			<article class="dashboard-card">
-				
-				<p class="metric">92%</p>
-				<p class="card-note">Done</p>
+				<span class="card-icon card-icon--done" aria-hidden="true">✓</span>
+				<div class="card-content">
+					<h2>Done</h2>
+					<p class="metric">92%</p>
+				</div>
 			</article>
 		</section>
 		<footer>Dashboard summary</footer>
